@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import InputComponent from "./components/InputComponent";
+import WeatherComponent from "./components/WeatherComponent";
+import ForecastComponent from "./components/ForecastComponent";
+import { Container } from "@mui/material";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [city, setCity] = useState("");
+
+	const handleCityChange = (city) => {
+		setCity(city);
+	};
+
+	return (
+		<Container maxWidth="sm" className="mt-5">
+			<div className="d-flex align-items-center mb-3">
+				<h1>Weather App</h1>
+        <div className="spacer" />
+				<InputComponent onCityChange={handleCityChange} />
+				{city && (
+					<>
+						<WeatherComponent city={city} />
+            <div className="spacer" />
+						<ForecastComponent city={city} />
+					</>
+				)}
+			</div>
+		</Container>
+	);
 }
 
 export default App;
