@@ -4,7 +4,7 @@
 
 The Weather App is a web application that allows users to get the current weather information for a given city. It utilizes the OpenWeatherMap API to fetch the weather data based on the city input. The app provides temperature, feels like temperature, wind speed, humidity, and weather condition for the specified city.
 
-![Weather App Screenshot](./public/rise-and-shine-frontend.png)
+![Weather App Screenshot](./public/weather.png)
 
 ## Setup
 
