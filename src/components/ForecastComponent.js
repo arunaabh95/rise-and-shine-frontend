@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Alert } from 'react-bootstrap';
 import '../App.css';
-import { Card, CardContent, CircularProgress, Typography } from '@mui/material';
+import { Card, CardContent, Typography } from '@mui/material';
 
 function ForecastComponent({ city }) {
   const [forecastData, setForecastData] = useState({});
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchForecastData = async () => {
       try {
-        setLoading(true);
         const response = await axios.get(`https://us-central1-rise-and-shine-backend.cloudfunctions.net/gcp-func-rasb/forecast/${city}`); // Update the API endpoint as needed
         setForecastData(response.data.data);
-        setLoading(false);
       } catch (error) {
         setForecastData({});
-        setLoading(false);
       }
     };
 
@@ -29,7 +24,6 @@ function ForecastComponent({ city }) {
   return (
     <div className="forecast-component">
     {console.log(forecastData)}
-      {loading && <CircularProgress className="loader" />}
       {forecastData && forecastData.length && forecastData.map((day, index) => (
         <Card key={index} className="forecast-card">
           <CardContent>
