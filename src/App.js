@@ -15,7 +15,7 @@ function App() {
 	return (
 		<Container maxWidth="sm" className="mt-5">
 			<div className="d-flex align-items-center mb-3">
-				<h1>Weather App</h1>
+				<h1>Rise And Shine</h1>
         <div className="spacer" />
 				<InputComponent onCityChange={handleCityChange} />
 				{city && (
